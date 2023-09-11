@@ -1,0 +1,83 @@
+.otp-group {
+  .main-logo-image {
+    width: 211px;
+    height: 92px;
+  }
+
+  .orange-dark-big-color {
+    color: #ea4b22;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+  }
+
+  .orange-dark-color {
+    color: #eb5e29;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  .form-mail-text {
+    color: #53605f;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 56px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .email-text {
+    color: #53605f;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 56px;
+    margin-bottom: 45px;
+    text-align: center;
+  }
+  .otp-text {
+    color: #53605f;
+    font-family: Open Sans;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .resent-otp-text {
+    color: #53605f;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 78px;
+    margin-bottom: 19px;
+  }
+  .change-email-text {
+    color: #064f80;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: underline;
+  }
+}

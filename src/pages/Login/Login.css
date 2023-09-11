@@ -1,0 +1,37 @@
+.instructor-login {
+  .orange-dark-color {
+    color: #eb5e29;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  .main-logo-image {
+    width: 211px;
+    height: 92px;
+  }
+  .form-title-text {
+    color: #53605f;
+    font-family: Open Sans;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-top: 70px;
+  }
+  .form-subtitle-text {
+    color: #53605f;
+    font-family: Open Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 133.333% */
+  }
+  .input-container {
+    margin-top: 60px;
+  }
+}
