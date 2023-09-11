@@ -5,16 +5,16 @@ import { Formik } from "formik";
 import { useMutation } from "@apollo/client";
 
 import { mainHomePageLogo } from "../../assets/images";
-import "./Login.css";
-import InputField from "../../components/Common/InputField/InputFiled";
-import ButtonComponent from "../../components/Common/Button/ButtonComponent";
+import "./login.scss";
+import InputField from "../../components/Common/input-field/InputFiled";
+import ButtonComponent from "../../components/Common/button/ButtonComponent";
 import {
   CHECK_USER_DETAILS,
   CHECK_USER_EMAIL,
 } from "../../graphql-queries/Authentication.queries";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserEmail } from "../../store/actions/user.action";
-import LoginPageLayout from "../../layout/login-page-layout/login-page-layout";
+import TabComponent from "../../components/tab-component/TabComponent";
 
 const EmailFormSchema = Yup.object().shape({
   email: Yup.string()
@@ -35,7 +35,7 @@ const Login = () => {
   const [checkUserIsPresent, { loading: loadingCheckUser, errorCheckUser }] =
     useMutation(CHECK_USER_EMAIL);
 
-  const [login, { loading: loadingLogin, errorLogin }] =
+  const [login, { loading: loadingLogin, error: errorLogin }] =
     useMutation(CHECK_USER_DETAILS);
 
   const checkUserApiCall = async (email) => {
@@ -83,117 +83,126 @@ const Login = () => {
   };
 
   return (
-    <LoginPageLayout>
-      <div className="instructor-login">
-        <div className="display-flex justify-content-end align-items-center">
-          <p className="right-side-text">
-            Need assistance?{" "}
-            <span className="orange-dark-color">Contact us for help</span>
-          </p>
-        </div>
-        <div className="padding-10">
-          <img src={mainHomePageLogo} className="main-logo-image" alt="logo" />
-          <h3 className="form-title-text">Enter email for verification</h3>
-          <p className="form-subtitle-text">
-            {showEmailForm
-              ? "Enter your email address. Use your Connect account email, if you have an account."
-              : "Welcome back! Please enter your password."}
-          </p>
-          {showEmailForm ? (
-            <Formik
-              enableReinitialize={true}
-              initialValues={{
-                email: "",
-              }}
-              validationSchema={EmailFormSchema}
-              onSubmit={(values) => {
-                checkUserApiCall(values.email);
-              }}
-            >
-              {({
-                errors,
-                values,
-                touched,
-                handleSubmit,
-                handleChange,
-                handleBlur,
-              }) => {
-                return (
-                  <form onSubmit={handleSubmit} autoComplete="off">
-                    <div className="input-container">
-                      <InputField
-                        label="Email"
-                        autoFocus
-                        placeholder="Enter Email Address"
-                        name="email"
-                        value={values.email}
-                        error={errors.email}
-                        touched={touched.email}
-                        handleBlur={handleBlur}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="mt-5">
-                      <ButtonComponent
-                        isLoading={loadingCheckUser}
-                        type="submit"
-                        text="Next"
-                      />
-                    </div>
-                  </form>
-                );
-              }}
-            </Formik>
-          ) : (
-            <Formik
-              enableReinitialize={true}
-              initialValues={{
-                password: "",
-              }}
-              validationSchema={PasswordFormSchema}
-              onSubmit={(values) => {
-                loginApiCall(values.password);
-              }}
-            >
-              {({
-                errors,
-                values,
-                touched,
-                handleSubmit,
-                handleChange,
-                handleBlur,
-              }) => {
-                return (
-                  <form onSubmit={handleSubmit} autoComplete="off">
-                    <div className="input-container">
-                      <InputField
-                        label="Password"
-                        autoFocus
-                        type="password"
-                        placeholder="Enter your password"
-                        name="password"
-                        value={values.password}
-                        error={errors.password}
-                        touched={touched.password}
-                        handleBlur={handleBlur}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="mt-5">
-                      <ButtonComponent
-                        isLoading={loadingLogin}
-                        type="submit"
-                        text="Next"
-                      />
-                    </div>
-                  </form>
-                );
-              }}
-            </Formik>
-          )}
+    <div className="row login-row g-0">
+      <div className="col-lg-6 col-md-6 col-12 p-5 order-2 order-sm-2 order-lg-1  login-left-group">
+        <TabComponent />
+      </div>
+      <div className="col-lg-6 col-md-6 col-12 p-5 order-1 order-sm-1 order-lg-2">
+        <div className="instructor-login">
+          <div className="display-flex justify-content-end align-items-center">
+            <p className="right-side-text">
+              Need assistance?{" "}
+              <span className="orange-dark-color">Contact us for help</span>
+            </p>
+          </div>
+          <div className="padding-10">
+            <img
+              src={mainHomePageLogo}
+              className="main-logo-image"
+              alt="logo"
+            />
+            <h3 className="form-title-text">Enter email for verification</h3>
+            <p className="form-subtitle-text">
+              {showEmailForm
+                ? "Enter your email address. Use your Connect account email, if you have an account."
+                : "Welcome back! Please enter your password."}
+            </p>
+            {showEmailForm ? (
+              <Formik
+                enableReinitialize={true}
+                initialValues={{
+                  email: "",
+                }}
+                validationSchema={EmailFormSchema}
+                onSubmit={(values) => {
+                  checkUserApiCall(values.email);
+                }}
+              >
+                {({
+                  errors,
+                  values,
+                  touched,
+                  handleSubmit,
+                  handleChange,
+                  handleBlur,
+                }) => {
+                  return (
+                    <form onSubmit={handleSubmit} autoComplete="off">
+                      <div className="input-container">
+                        <InputField
+                          label="Email"
+                          autoFocus
+                          placeholder="Enter Email Address"
+                          name="email"
+                          value={values.email}
+                          error={errors.email}
+                          touched={touched.email}
+                          handleBlur={handleBlur}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="mt-5">
+                        <ButtonComponent
+                          isLoading={loadingCheckUser}
+                          type="submit"
+                          text="Next"
+                        />
+                      </div>
+                    </form>
+                  );
+                }}
+              </Formik>
+            ) : (
+              <Formik
+                enableReinitialize={true}
+                initialValues={{
+                  password: "",
+                }}
+                validationSchema={PasswordFormSchema}
+                onSubmit={(values) => {
+                  loginApiCall(values.password);
+                }}
+              >
+                {({
+                  errors,
+                  values,
+                  touched,
+                  handleSubmit,
+                  handleChange,
+                  handleBlur,
+                }) => {
+                  return (
+                    <form onSubmit={handleSubmit} autoComplete="off">
+                      <div className="input-container">
+                        <InputField
+                          label="Password"
+                          autoFocus
+                          type="password"
+                          placeholder="Enter your password"
+                          name="password"
+                          value={values.password}
+                          error={errors.password}
+                          touched={touched.password}
+                          handleBlur={handleBlur}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="mt-5">
+                        <ButtonComponent
+                          isLoading={loadingLogin}
+                          type="submit"
+                          text="Next"
+                        />
+                      </div>
+                    </form>
+                  );
+                }}
+              </Formik>
+            )}
+          </div>
         </div>
       </div>
-    </LoginPageLayout>
+    </div>
   );
 };
 

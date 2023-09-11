@@ -3,10 +3,10 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/style/styles.css";
-import "./assets/style/responsive.css";
-import Login from "./pages/Login/Login";
-import Otp from "./pages/OtpPage/Otp";
+import "./assets/style/styles.scss";
+import "./assets/style/responsive.scss";
+import Login from "./pages/login/login";
+import Otp from "./pages/otpPage/otp";
 
 function App() {
   return (

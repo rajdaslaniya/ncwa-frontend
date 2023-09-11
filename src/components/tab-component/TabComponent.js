@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { depCouncilSvg, illustrationSvg } from "../../../assets/images";
-import StepComponent from "../StepComponent/StepComponent";
-import "./TabComponent.css";
+import { depCouncilSvg, illustrationSvg } from "../../assets/images";
+import StepComponent from "../step-component/StepComponent";
+import "./TabComponent.scss";
 
 const TabComponent = () => {
   const [activeTab, setActiveTab] = useState(1);

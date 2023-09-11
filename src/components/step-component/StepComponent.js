@@ -1,6 +1,6 @@
 import React from "react";
-import { downSvgImage } from "../../../assets/images";
-import "./StepComponent.css";
+import { downSvgImage } from "../../assets/images";
+import "./StepComponent.scss";
 
 const StepComponent = ({ index, text }) => {
   return (
