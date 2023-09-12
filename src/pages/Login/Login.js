@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { mainHomePageLogo } from "../../assets/images";
 import "./login.scss";
@@ -12,10 +14,12 @@ import {
   CHECK_USER_DETAILS,
   CHECK_USER_EMAIL,
 } from "../../graphql-queries/Authentication.queries";
-import { useSelector, useDispatch } from "react-redux";
-import { setUserEmail, setUserToken } from "../../store/actions/user.action";
+import {
+  emailVerify,
+  setUserEmail,
+  setUserToken,
+} from "../../store/actions/user.action";
 import TabComponent from "../../components/tab-component/TabComponent";
-import { useNavigate } from "react-router-dom";
 
 const EmailFormSchema = Yup.object().shape({
   email: Yup.string()
@@ -66,6 +70,7 @@ const Login = () => {
         !data.checkUserEmail.is_email_sent &&
         !data.checkUserEmail.is_user_registered
       ) {
+        dispatch(emailVerify(true));
         toast.success("Complete your registration process");
         navigation("/registration");
       }
@@ -86,6 +91,7 @@ const Login = () => {
       data.loginUser.status === 200
     ) {
       dispatch(setUserToken(data.loginUser.token));
+
       navigation("/course-details");
       toast.success("User login successfully");
     } else {

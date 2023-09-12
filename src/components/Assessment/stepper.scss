@@ -1,0 +1,24 @@
+.custom-stepper .react-form-stepper-step::before {
+  width: 10px;
+  /* Adjust the width as needed */
+  height: 10px;
+  /* Adjust the height as needed */
+}
+
+.custom-stepper .custom-stepper .react-form-stepper-step::before {
+  content: none;
+  /* Remove the content (number) */
+}
+
+.StepButtonContent-0-2-5 {
+  display: none;
+}
+
+.StepButton-0-2-4 {
+  z-index: 50;
+}
+
+.shadowOutlineCurrentQn#RFS-StepButton {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.654);
+  outline: 3px solid #fff;
+}

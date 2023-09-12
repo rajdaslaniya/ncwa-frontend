@@ -1,0 +1,65 @@
+.instructor-assessment {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  .instructorTitle {
+    color: #53605f;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+
+  .there-are-many {
+    color: #53605f;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 30px;
+    opacity: 0.8;
+  }
+
+  .instructionFont {
+    color: #53605f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .instructionFont2 {
+    color: #53605f;
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li::before {
+    content: "•";
+    position: relative;
+    color: #ea4b22;
+    top: 10px;
+    margin-right: 5px;
+    left: 0;
+    font-size: 2em;
+    line-height: 1;
+  }
+  li {
+    text-indent: -1em; /* Negative text-indent aligns with the first letter */
+    /* padding:0.2rem; */
+    text-align: justify;
+    padding-bottom: 3px;
+  }
+
+  .cardDiv {
+    border-radius: 4px;
+    box-shadow: 0px 16px 30px 0px rgba(76, 90, 90, 0.1);
+    background: #fff;
+  }
+}

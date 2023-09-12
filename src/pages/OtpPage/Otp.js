@@ -10,10 +10,11 @@ import {
   RESEND_OTP,
   VERIFY_OTP,
 } from "../../graphql-queries/Authentication.queries";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SmallButtonComponent from "../../components/Common/button/SmallButtonComponent";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/Loader";
+import { emailVerify } from "../../store/actions/user.action";
 
 const OtpFormSubmit = Yup.object().shape({
   otp: Yup.string()
@@ -25,6 +26,7 @@ const OtpFormSubmit = Yup.object().shape({
 const Otp = () => {
   const email = useSelector((data) => data.userData.email);
   const navigation = useNavigate();
+  const dispatch = useDispatch();
 
   const [verifyOtp, { loading: isVerifyOtpLoading, error: errorVerifyOtp }] =
     useMutation(VERIFY_OTP);
@@ -58,6 +60,7 @@ const Otp = () => {
     }
     if (data.verifyOtp.status === 200) {
       if (data.verifyOtp.success) {
+        dispatch(emailVerify(true));
         toast.success("Complete your registration process");
         navigation("/registration");
       }

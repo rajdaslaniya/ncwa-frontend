@@ -1,4 +1,5 @@
 import {
+  IS_EMAIL_VERIFIED,
   LOGOUT_USER,
   SET_USER_EMAIL,
   SET_USER_TOKEN,
@@ -7,6 +8,7 @@ import {
 const initialState = {
   email: "",
   token: "",
+  isEmailVerify: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -16,6 +18,8 @@ const userReducer = (state = initialState, action) => {
       return { ...state, email: action.payload };
     case SET_USER_TOKEN:
       return { ...state, token: action.payload };
+    case IS_EMAIL_VERIFIED:
+      return { ...state, isEmailVerify: action.payload };
     case LOGOUT_USER:
       return { ...initialState };
     default:

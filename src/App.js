@@ -9,6 +9,9 @@ import Login from "./pages/login/login";
 import Otp from "./pages/otpPage/otp";
 import Registration from "./pages/registration/registration";
 import CourseDetails from "./pages/course-details/course-details";
+import ProtectedRoute from "./guards/ProtectedRoute";
+import IsOtpVerified from "./guards/isOtpVerified";
+import InstructorAssessment from "./pages/instructor-assesment/InstructorAssessment";
 
 function App() {
   return (
@@ -17,8 +20,30 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/otp" element={<Otp />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/course-details" element={<CourseDetails />} />
+          <Route
+            path="/registration"
+            element={
+              <IsOtpVerified>
+                <Registration />
+              </IsOtpVerified>
+            }
+          />
+          <Route
+            path="/course-details"
+            element={
+              <ProtectedRoute>
+                <CourseDetails />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/assessment"
+            element={
+              <ProtectedRoute>
+                <InstructorAssessment />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

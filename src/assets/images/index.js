@@ -7,6 +7,7 @@ import ottGroupSvg from "./svg/ott-group.svg";
 import headerLogo from "./png/header-logo.png";
 import logOutImage from "./svg/Logout.svg";
 import personImage from "./svg/Person.svg";
+import horizontalLine from "./svg/horizontal-line.svg";
 
 const DownArrow = ({ height = 20, width = 20, ...props }) => (
   <svg
@@ -34,4 +35,5 @@ export {
   DownArrow,
   personImage,
   logOutImage,
+  horizontalLine,
 };

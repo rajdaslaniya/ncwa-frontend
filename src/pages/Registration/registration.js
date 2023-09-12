@@ -13,7 +13,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import InputField from "../../components/Common/input-field/InputFiled";
 import TextArea from "../../components/Common/text-area/TextArea";
-import RadioButton from "../../components/Common/radio-button/RadioButton";
+import RadioButtonGroup from "../../components/Common/radio-button/RadioButtonGroup";
 import SelectDropdown from "../../components/Common/select-dropdown/SelectDropdown";
 import ButtonComponent from "../../components/Common/button/ButtonComponent";
 import { useMutation, useQuery } from "@apollo/client";
@@ -192,7 +192,7 @@ const Registration = () => {
                         handleBlur={handleBlur}
                         onChange={handleChange}
                       />
-                      <RadioButton
+                      <RadioButtonGroup
                         label="National Council Member?"
                         error={errors.isCouncilMember}
                         name="isCouncilMember"

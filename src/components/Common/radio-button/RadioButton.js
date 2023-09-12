@@ -1,5 +1,5 @@
 import React from "react";
-import "./RadioButton.scss";
+import styles from "./RadioButton.scss";
 
 const RadioButton = ({
   error,
@@ -7,29 +7,27 @@ const RadioButton = ({
   label,
   name,
   value,
-  radioButtonItem,
-  isLoginPage = false,
+  checkBoxLabel,
+  val,
+  id,
 }) => {
   return (
-    <div className={`radio-button-group ${isLoginPage ? "" : "small-text"}`}>
-      {label && <label className="input-label">{label}</label>}
-      <div className={`radio-button-container ${error && "margin-bottom-10"}`}>
-        {radioButtonItem.map((item) => (
-          <div className="radio-item">
-            <input
-              type="radio"
-              id={item.id}
-              name={item.name}
-              value={item.val}
-              onChange={() => setFieldValue(name, item.val)}
-              checked={item.val === value}
-            />
-            <label htmlFor={item.id}>{item.checkBoxLabel}</label>
-          </div>
-        ))}
+    <>
+      {label && <b className={styles.inputLabel}>{label}</b>}
+      <div>
+        <input
+          type="radio"
+          id={id}
+          name={name}
+          value={val}
+          onChange={() => setFieldValue(name, val)}
+          checked={val === value}
+        />
+        <label htmlFor={id}>{checkBoxLabel}</label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
-      {error && <p className="errorMessage">{error}</p>}
-    </div>
+      {error && <p className={styles.errorMessage}>{error}</p>}
+    </>
   );
 };
 
