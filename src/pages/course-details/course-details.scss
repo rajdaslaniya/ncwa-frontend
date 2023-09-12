@@ -1,0 +1,41 @@
+.course {
+  .course-text {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+  .instructorTitle {
+    color: #53605f;
+    font-family: Open Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 155.556% */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .there-are-many {
+    color: #53605f;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 214.286% */
+  }
+  .apply-for-text {
+    color: #555;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 7px;
+  }
+  .horizontal-line {
+    margin: 0 0 40px;
+    color: rgba(0, 0, 0, 0.1);
+    opacity: 1;
+  }
+  .course-container {
+    row-gap: 15px;
+  }
+}

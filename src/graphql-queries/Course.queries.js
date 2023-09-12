@@ -1,13 +1,13 @@
 import { gql } from "@apollo/client";
 
-export const GET_FIELDS = gql`
-  query GetCourse {
-    GetCourse {
+export const GET_ALL_COURSE = gql`
+  query Query {
+    getCourse {
+      created_date
+      description
       id
-      course_title
-      course_description
-      status
-      creation
+      name
+      updated_date
     }
   }
 `;

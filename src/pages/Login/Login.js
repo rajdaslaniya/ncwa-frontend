@@ -13,8 +13,9 @@ import {
   CHECK_USER_EMAIL,
 } from "../../graphql-queries/Authentication.queries";
 import { useSelector, useDispatch } from "react-redux";
-import { setUserEmail } from "../../store/actions/user.action";
+import { setUserEmail, setUserToken } from "../../store/actions/user.action";
 import TabComponent from "../../components/tab-component/TabComponent";
+import { useNavigate } from "react-router-dom";
 
 const EmailFormSchema = Yup.object().shape({
   email: Yup.string()
@@ -30,6 +31,7 @@ const PasswordFormSchema = Yup.object().shape({
 const Login = () => {
   const [showEmailForm, setShowEmailForm] = useState(true);
   const email = useSelector((data) => data.userData.email);
+  const navigation = useNavigate();
   const dispatch = useDispatch();
 
   const [checkUserIsPresent, { loading: loadingCheckUser, errorCheckUser }] =
@@ -53,12 +55,19 @@ const Login = () => {
       ) {
         setShowEmailForm(false);
       }
-      if (!data.checkUserEmail.is_email_sent) {
-        setShowEmailForm(false);
+      if (
+        data.checkUserEmail.is_email_sent &&
+        !data.checkUserEmail.is_user_registered
+      ) {
+        toast.success("Please verify your email.");
+        navigation("/otp");
       }
-      if (!data.checkUserEmail.is_user_registered) {
-        console.log("registration");
-        // navigation("/registration")
+      if (
+        !data.checkUserEmail.is_email_sent &&
+        !data.checkUserEmail.is_user_registered
+      ) {
+        toast.success("Complete your registration process");
+        navigation("/registration");
       }
     }
   };
@@ -76,6 +85,8 @@ const Login = () => {
       data.loginUser.success &&
       data.loginUser.status === 200
     ) {
+      dispatch(setUserToken(data.loginUser.token));
+      navigation("/course-details");
       toast.success("User login successfully");
     } else {
       toast.error("Invalid email or password please try again");
@@ -84,10 +95,10 @@ const Login = () => {
 
   return (
     <div className="row login-row g-0">
-      <div className="col-lg-6 col-md-6 col-12 p-5 order-2 order-sm-2 order-lg-1  login-left-group">
+      <div className="col-lg-6 col-md-6 col-12 p-5 order-2 order-sm-1 order-lg-1  login-left-group">
         <TabComponent />
       </div>
-      <div className="col-lg-6 col-md-6 col-12 p-5 order-1 order-sm-1 order-lg-2">
+      <div className="col-lg-6 col-md-6 col-12 p-5 order-1 order-sm-2 order-lg-2">
         <div className="instructor-login">
           <div className="display-flex justify-content-end align-items-center">
             <p className="right-side-text">
@@ -130,6 +141,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit} autoComplete="off">
                       <div className="input-container">
                         <InputField
+                          isLoginPage
                           label="Email"
                           autoFocus
                           placeholder="Enter Email Address"
@@ -175,6 +187,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit} autoComplete="off">
                       <div className="input-container">
                         <InputField
+                          isLoginPage
                           label="Password"
                           autoFocus
                           type="password"

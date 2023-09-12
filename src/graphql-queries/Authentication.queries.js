@@ -11,7 +11,7 @@ export const GET_USERS = gql`
 `;
 
 export const CREATE_NEW_REGISTRATION = gql`
-  mutation UserRegistration(
+  mutation userRegistration(
     $password: String!
     $email: String!
     $name: String!

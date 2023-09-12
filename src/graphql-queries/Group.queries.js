@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const GET_FIELDS = gql`
+export const GET_ALL_GROUP = gql`
   query Query {
-    GetGroup {
+    getGroup {
       id
       name
     }

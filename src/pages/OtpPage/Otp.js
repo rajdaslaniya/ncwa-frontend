@@ -43,7 +43,6 @@ const Otp = () => {
     if (data.resendOtp.status === 200) {
       if (data.resendOtp.success && data.resendOtp.is_email_sent) {
         toast.success("Otp send successfully in mail");
-        // navigation("/registration")
       }
     } else {
       toast.error("Something went to wrong please try again");
@@ -59,8 +58,8 @@ const Otp = () => {
     }
     if (data.verifyOtp.status === 200) {
       if (data.verifyOtp.success) {
-        console.log("registration");
-        // navigation("/registration")
+        toast.success("Complete your registration process");
+        navigation("/registration");
       }
     } else {
       toast.error("Please enter valid otp");
@@ -74,10 +73,10 @@ const Otp = () => {
   return (
     <div className="row otp-row g-0">
       <Loader isLoading={isResendLoading} />
-      <div className="col-lg-6 col-md-6 col-12 p-5 order-2 order-sm-2 order-lg-1  otp-left-group">
+      <div className="col-lg-6 col-md-6 col-12 p-5 order-2 order-sm-1 order-lg-1  otp-left-group">
         <img src={ottGroupSvg} className="email-send-image" alt="email-send" />
       </div>
-      <div className="col-lg-6 col-md-6 col-12 p-5 order-1 order-sm-1 order-lg-2">
+      <div className="col-lg-6 col-md-6 col-12 p-5 order-1 order-sm-2 order-lg-2">
         <div className="otp-group">
           <div className="display-flex justify-content-end align-items-center">
             <p className="right-side-text">

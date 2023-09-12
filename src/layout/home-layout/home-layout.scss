@@ -1,0 +1,109 @@
+.home-layout {
+  height: 100%;
+  .children-container {
+    position: relative;
+    height: calc(100% - 60px);
+  }
+
+  .left-image-group {
+    .left-image-1 {
+      border-radius: 15.415px 0px 17.985px 0px;
+      background: linear-gradient(
+        208deg,
+        #f3f0e7 9.83%,
+        rgba(243, 240, 231, 0) 148.15%
+      );
+      width: 111.047px;
+      height: 111.047px;
+      position: fixed;
+      left: 62px;
+      top: 90px;
+    }
+
+    .left-image-2 {
+      width: 111.047px;
+      height: 111.047px;
+      border-radius: 15.415px 0px 17.985px 0px;
+      background: linear-gradient(
+        208deg,
+        #f3f0e7 9.83%,
+        rgba(243, 240, 231, 0) 148.15%
+      );
+      position: fixed;
+      top: 156px;
+      left: 0;
+    }
+
+    .left-image-3 {
+      width: 69px;
+      height: 69px;
+      border-radius: 15.415px 0px 17.985px 0px;
+      background: linear-gradient(
+        208deg,
+        #f3f0e7 9.83%,
+        rgba(243, 240, 231, 0) 148.15%
+      );
+      position: fixed;
+      top: 300px;
+      left: 77px;
+    }
+  }
+
+  .right-image-group {
+    .right-image-1 {
+      border-radius: 18px 0px 21px 0px;
+      background: linear-gradient(
+        208deg,
+        #f3f0e7 9.83%,
+        rgba(243, 240, 231, 0) 148.15%
+      );
+      width: 128.378px;
+      height: 128.378px;
+      position: fixed;
+      right: 62px;
+      bottom: 75px;
+    }
+
+    .right-image-2 {
+      width: 128.378px;
+      height: 128.378px;
+      border-radius: 18px 0px 21px 0px;
+      background: linear-gradient(
+        208deg,
+        #f3f0e7 9.83%,
+        rgba(243, 240, 231, 0) 148.15%
+      );
+      position: fixed;
+      bottom: 145px;
+      right: 15px;
+    }
+
+    .right-image-3 {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px 0px 21px 0px;
+      background: linear-gradient(
+        208deg,
+        #f3f0e7 9.83%,
+        rgba(243, 240, 231, 0) 148.15%
+      );
+      position: fixed;
+      bottom: 300px;
+      right: 47px;
+    }
+  }
+
+  .child-container {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    height: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .left-image-group,
+  .right-image-group {
+    display: none;
+  }
+}

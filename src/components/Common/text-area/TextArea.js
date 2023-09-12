@@ -1,7 +1,7 @@
 import React from "react";
-import "./InputField.scss";
+import "./TextArea.scss";
 
-const InputField = ({
+const TextArea = ({
   id,
   name,
   type = "text",
@@ -17,12 +17,13 @@ const InputField = ({
   isLoginPage = false,
 }) => {
   return (
-    <div className={`text-field ${isLoginPage ? "" : "small-text"}`}>
+    <div className={`text-area-field ${isLoginPage ? "" : "small-text"}`}>
       {label && <label className="input-label">{label}</label>}
-      <input
+      <textarea
         id={id}
         name={name}
         type={type}
+        rows={5}
         className={`input ${error && touched && "margin-bottom-10"}`}
         onChange={onChange}
         placeholder={placeholder}
@@ -37,4 +38,4 @@ const InputField = ({
   );
 };
 
-export default InputField;
+export default TextArea;

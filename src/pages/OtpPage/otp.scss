@@ -141,3 +141,15 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 768px) {
+  .email-send-image {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .desk {
+    opacity: 0;
+  }
+}
