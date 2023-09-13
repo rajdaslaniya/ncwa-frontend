@@ -11,7 +11,7 @@ import Registration from "./pages/registration/registration";
 import CourseDetails from "./pages/course-details/course-details";
 import ProtectedRoute from "./guards/ProtectedRoute";
 import IsOtpVerified from "./guards/isOtpVerified";
-import InstructorAssessment from "./pages/instructor-assesment/InstructorAssessment";
+import InstructorAssessment from "./pages/instructor-assessment/InstructorAssessment";
 
 function App() {
   return (
