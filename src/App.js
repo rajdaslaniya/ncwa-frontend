@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/style/styles.scss";
 import "./assets/style/responsive.scss";
-import Login from "./pages/login/login";
+import Login from "./pages/login/Login";
 import Otp from "./pages/otpPage/otp";
 import Registration from "./pages/registration/registration";
 import CourseDetails from "./pages/course-details/course-details";

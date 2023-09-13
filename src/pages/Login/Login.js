@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { mainHomePageLogo } from "../../assets/images";
-import "./login.scss";
+import "./Login.scss";
 import InputField from "../../components/Common/input-field/InputFiled";
 import ButtonComponent from "../../components/Common/button/ButtonComponent";
 import {
